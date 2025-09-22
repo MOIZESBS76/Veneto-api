@@ -1,0 +1,39 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/          # Pastas de cache de bytecode do Python
+*.pyc                 # Arquivos compilados do Python
+*.pyo                 # Arquivos otimizados do Python
+*.pyd                 # Extensões compiladas do Python
+*.env                 # Arquivo de variáveis de ambiente (contém senhas, tokens)
+*.env.local           # Variáveis de ambiente locais
+*.env.*.bak           # Backups automáticos de arquivos .env
+*.log                 # Logs de execução
+*.sqlite3             # Arquivos de banco de dados SQLite (não usado aqui, mas por precaução)
+
+# ==========================
+# IDEs
+# ==========================
+.vscode/              # Configurações do VSCode
+.idea/                # Configurações do PyCharm
+
+# ==========================
+# Ambientes virtuais
+# ==========================
+venv/                 # Virtualenv do projeto
+env/                  # Outra convenção para virtualenv
+ENV/                  # Outra possível convenção de virtualenv
+
+# ==========================
+# Docker
+# ==========================
+*.dockerignore        # Arquivos dockerignore (não versionar)
+docker-compose.override.yml
+docker-compose.override.yaml
+mongo_data/           # Volume do MongoDB (persistência local)
+
+# ==========================
+# Sistema operacional
+# ==========================
+.DS_Store             # Arquivos do MacOS
+Thumbs.db             # Arquivos do Windows
