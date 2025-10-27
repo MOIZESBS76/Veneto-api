@@ -1,10 +1,13 @@
-from typing import Protocol, Optional
-from app.domain.entities import Product
+from typing import Optional, List, Protocol
+from app.domain.entities import Product, ProductCategory
+from app.domain.order_entities import Order, OrderStatus
+from datetime import datetime
 
 class ProductRepo(Protocol):
     async def by_id(self, pid: str) -> Optional[Product]: ...
     async def save(self, p: Product) -> None: ...
-    async def list_active(self) -> list[Product]: ...
+    async def list_by_category(self, cat: ProductCategory) -> List[Product]: ...
+    async def list_active(self) -> List[Product]: ...
 
 class MongoProductRepo:
     def __init__(self, col):
@@ -12,25 +15,52 @@ class MongoProductRepo:
 
     async def by_id(self, pid: str) -> Optional[Product]:
         doc = await self.col.find_one({"_id": pid})
-        return Product(id=doc["_id"], name=doc["name"], price=doc["price"], active=doc.get("active", True)) if doc else None
+        if not doc:
+            return None
+        return Product(
+            id=doc["_id"],
+            name=doc["name"],
+            category=doc["category"],
+            description=doc.get("description"),
+            active=doc.get("active", True),
+            image_url=doc.get("image_url")
+        )
 
     async def save(self, p: Product) -> None:
         await self.col.update_one(
             {"_id": p.id},
-            {"$set": {"name": p.name, "price": p.price, "active": p.active}},
-            upsert=True,
+            {"$set": p.dict()},
+            upsert=True
         )
 
-    async def list_active(self) -> list[Product]:
-        cur = self.col.find({"active": True})
-        items: list[Product] = []
+    async def list_by_category(self, cat: ProductCategory) -> List[Product]:
+        cur = self.col.find({"category": cat.value, "active": True})
+        items = []
         async for d in cur:
-            items.append(Product(id=d["_id"], name=d["name"], price=d["price"], active=d.get("active", True)))
+            items.append(Product(
+                id=d["_id"],
+                name=d["name"],
+                category=d["category"],
+                description=d.get("description"),
+                active=d.get("active", True),
+                image_url=d.get("image_url")
+            ))
         return items
 
-# Atualização do OderRepo
-from app.domain.order_entities import Order, OrderStatus
-from typing import Optional, List
+    async def list_active(self) -> List[Product]:
+        cur = self.col.find({"active": True})
+        items = []
+        async for d in cur:
+            items.append(Product(
+                id=d["_id"],
+                name=d["name"],
+                category=d["category"],
+                description=d.get("description"),
+                active=d.get("active", True),
+                image_url=d.get("image_url")
+            ))
+        return items
+    
 
 class OrderRepo(Protocol):
     async def by_id(self, oid: str) -> Optional[Order]: ...
@@ -75,3 +105,4 @@ class MongoOrderRepo:
             {"_id": oid},
             {"$set": {"status": status.value, "updated_at": datetime.utcnow()}}
         )
+    
