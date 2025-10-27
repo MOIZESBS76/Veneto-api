@@ -9,3 +9,14 @@ async def get_product_repo(db = Depends(get_db)):
 
 def get_product_service(repo = Depends(get_product_repo)):
     return ProductService(repo)
+
+# Atualização para adicionar OrderService
+from app.infra.repos import MongoOrderRepo
+from app.services.order_service import OrderService
+
+async def get_order_repo(db = Depends(get_db)):
+    col = db["orders"]
+    return MongoOrderRepo(col)
+
+def get_order_service(repo = Depends(get_order_repo)):
+    return OrderService(repo)
