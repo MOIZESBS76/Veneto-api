@@ -25,3 +25,29 @@
 2. Implementar KDS
 3. Adicionar testes com pytest
 4. Integração de pagamentos
+
+
+## Para voltar para o projeto
+# Clonar o projeto
+git clone https://github.com/seu-usuario/veneto-api.git
+cd veneto-api
+
+# Ativar venv
+.\venv\Scripts\Activate
+
+# Instalar dependências
+pip install -r requirements.txt
+Em caso de problemas
+python -m pip install -r requirements.txt
+ou
+& ".\venv\Scripts\python.exe" -m pip install -r requirements.txt
+
+# Subir MongoDB
+docker-compose up -d
+
+# Rodar a API
+python -m uvicorn app.main:app --reload
+
+## Verificar o histórico de commits
+
+git log --oneline
