@@ -1,0 +1,11 @@
+[project]
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "motor",
+    "pydantic[dotenv]",
+    "pydantic-settings",
+    "httpx",
+    "pytest",
+    "pytest-asyncio",
+]
