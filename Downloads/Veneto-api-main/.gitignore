@@ -1,1 +1,79 @@
-# Ambiente Virtual venv/ .venv/ env/ ENV/ # Python __pycache__/ *.py[cod] *$py.class *.so .Python build/ develop-eggs/ dist/ downloads/ eggs/ .eggs/ lib/ lib64/ parts/ sdist/ var/ wheels/ *.egg-info/ .installed.cfg *.egg # IDE .vscode/ .idea/ *.swp *.swo *~ .DS_Store *.sublime-project *.sublime-workspace # Testes .pytest_cache/ .coverage htmlcov/ # Variáveis de Ambiente .env .env.local .env.*.local # Logs *.log logs/ # Banco de Dados *.db *.sqlite *.sqlite3 # Docker .dockerignore # OS Thumbs.db .DS_Store # Temporários *.tmp *.temp *.bak *.swp # Node (se usar frontend) node_modules/ npm-debug.log yarn-error.log # Arquivos do Sistema .AppleDouble .LSOverride ._*
+# Ambiente virtual
+venv/
+.venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Testes
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Banco de dados
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker
+.dockerignore
+
+# Sistema operacional
+Thumbs.db
+.DS_Store
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Node (se usar frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Arquivos do sistema Apple
+.AppleDouble
+.LSOverride
+._*
