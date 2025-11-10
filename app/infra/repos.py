@@ -22,6 +22,7 @@ class MongoProductRepo:
             name=doc["name"],
             category=doc["category"],
             description=doc.get("description"),
+            price=doc.get("price", 0.0),
             active=doc.get("active", True),
             image_url=doc.get("image_url")
         )
@@ -42,6 +43,7 @@ class MongoProductRepo:
                 name=d["name"],
                 category=d["category"],
                 description=d.get("description"),
+                price=d.get("price", 0.0),
                 active=d.get("active", True),
                 image_url=d.get("image_url")
             ))
@@ -56,6 +58,7 @@ class MongoProductRepo:
                 name=d["name"],
                 category=d["category"],
                 description=d.get("description"),
+                price=d.get("price", 0.0),
                 active=d.get("active", True),
                 image_url=d.get("image_url")
             ))

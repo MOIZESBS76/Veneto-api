@@ -13,6 +13,7 @@ class Product(BaseModel):
     name: str
     category: ProductCategory
     description: Optional[str] = None
+    price: float = Field(..., description="Product price")
     active: bool = True
     image_url: Optional[str] = None
 

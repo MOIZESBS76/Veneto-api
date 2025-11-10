@@ -51,3 +51,25 @@ python -m uvicorn app.main:app --reload
 ## Verificar o histórico de commits
 
 git log --oneline
+
+------------------------------------------------------------------------------
+Próximo Passos:
+
+Para a classe Pizza, como ela herda de Product e tem preços específicos por tamanho, você poderia:
+
+1. Usar o campo price como preço base ou preço do menor tamanho
+2. Adicionar validação para garantir que a lista de sizes não esteja vazia
+3. Adicionar validação para os tamanhos de pizza
+
+No arquivo products.py, você poderia adicionar validações adicionais:
+
+4. Verificar se o preço é positivo
+5. Validar o formato da URL da imagem
+6. Adicionar endpoint específico para pizzas que lide com os diferentes tamanhos
+
+No repositório (repos.py), seria bom adicionar:
+
+7. Índices para melhorar a performance das consultas por categoria
+8. Validação adicional antes de salvar os documentos
+9. Tratamento de erros mais específico para problemas de banco de dados
+
