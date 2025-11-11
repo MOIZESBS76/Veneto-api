@@ -15,7 +15,7 @@ class OrderItemIn(BaseModel):
     notes: str = None
 
 class OrderIn(BaseModel):
-    id: str
+    id: str = None # Opcional, será gerado se não fornecido
     customer_name: str
     customer_phone: str
     customer_address: str = None
@@ -42,9 +42,12 @@ class OrderOut(BaseModel):
 @router.post("", response_model=OrderOut, status_code=201)
 async def create_order(payload: OrderIn, svc: OrderService = Depends(get_order_service)):
     try:
+        # Gerar ID se não fornecido
+        order_id = payload.id or f"ORD-{datetime.now().strftime('%Y%m%d%H%M%S')}"
+        
         items = [OrderItem(**i.dict()) for i in payload.items]
         o = Order(
-            id=payload.id,
+            id=order_id,
             customer_name=payload.customer_name,
             customer_phone=payload.customer_phone,
             customer_address=payload.customer_address,

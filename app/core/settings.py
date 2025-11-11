@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     APP_NAME: str = "Veneto API"
     MONGO_URI: str = "mongodb://localhost:27017"
-    MONGO_DB: str = "veneto"
+    MONGO_DB: str = "veneto_db"
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

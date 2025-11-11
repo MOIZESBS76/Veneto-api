@@ -19,7 +19,7 @@ class OrderItem(BaseModel):
     notes: Optional[str] = None  # Observações (ex: "sem cebola")
 
 class Order(BaseModel):
-    id: str = Field(..., description="Order ID (ex: ORD-001)")
+    id: str = Field(default_factory=lambda: f"ORD-{datetime.now().strftime('%Y%m%d%H%M%S')}", description="Order ID (auto-generated)")
     customer_name: str
     customer_phone: str
     customer_address: Optional[str] = None
