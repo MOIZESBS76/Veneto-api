@@ -1,0 +1,162 @@
+.login {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #DBF7F5;
+  flex-direction :row;
+}
+
+.formulario {
+  position: absolute;
+  background-color: white;
+  color: black;
+  border: solid 2px black;
+}
+
+input {
+  border: solid 1px black;
+  background-color: rgba(243, 254, 248, 0.4);
+}
+input:focus {
+  background-color: rgba(243, 254, 248, 0.4);
+  outline: none;
+}
+
+a {
+  color: rgba(197, 6, 6, 1);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: rgba(197, 6, 6, 1);
+  transform: translateY(-2px);
+}
+a:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.esqueci-senha {
+  color: rgba(243, 254, 248, 0.4);
+  display: flex;
+  text-align: center;
+}
+
+.botao-login, .botao-cadastro {
+  background-color: rgba(1, 157, 83, 1);
+  color: white;
+  border: solid 2px rgba(51, 215, 141, 1);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+.botao-login:hover {
+  opacity: 1;
+  background-color: rgba(6, 140, 173, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+.botao-login:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.container-senha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.container-senha input {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.botao-olho {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+.botao-olho:hover {
+  opacity: 0.7;
+}
+
+.lembrar-de-mim {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  flex-direction: row;
+}
+.lembrar-de-mim input {
+  margin-right: 8px;
+}
+
+/*@media (max-width: 360px) {
+  /* Estilos para celulares pequenos */
+  .login {
+    height: 100vh;
+    width: 100%;
+  }
+
+  .formulario {
+    right: 0;
+    margin: 40px;
+    margin-right: 150px;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0 25px 0;
+    border-radius: 10px;
+  }
+
+  a {
+    margin-left: 10px;
+  }
+
+  .esqueci-senha {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .botao-login, .botao-cadastro {
+    padding: 12px 24px;
+    width: 50%;
+    opacity: 0.8;
+    font-size: 20px;
+    margin-left: 90px;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+/*}*/
+
+@media (min-width: 361px) and (max-width: 480px) {
+  /* Estilos para celulares médios */
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Estilos para celulares grandes */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Estilos para tablets em retrato */
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* Estilos para tablets em paisagem */
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+  /* Estilos para desktops comuns */
+}
+
+@media (min-width: 1441px) {
+  /* Estilos para desktops grandes */
+}
